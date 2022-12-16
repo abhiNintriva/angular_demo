@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="nav">
+        <div class="nav-left">
+            <img class="image" src="/assets/images/santander_1.png" alt="">
+        </div>
+        <div class="right"></div>
+    </div>
+    <div class="form-box">
+        <form action="" [formGroup]="loginForm" (ngSubmit)="onlogin()">
+            <label for="email">Email</label>
+            <br>
+            <input type="text" formControlName="email"
+            [ngClass]="{change:email?.invalid && email?.touched}">
+            <!-- <div class="invalid" *ngIf="email && email.invalid && email.touched">invalid</div> -->
+            <br>
+            <label for="password">Password</label>
+            <br>
+            <input type="password" formControlName="password"
+            [ngClass]="{change:password?.invalid && password?.touched}">
+            <br>
+            <app-button type="button">LOG IN</app-button>
+        </form>
+    </div>
+</div>

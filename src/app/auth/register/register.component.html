@@ -1,0 +1,50 @@
+<div class="container">
+    <div class="nav">
+        <div class="nav-left">
+            <img class="image" src="/assets/images/santander_1.png" alt="">
+        </div>
+        <div class="right"></div>
+    </div>
+    <div class="form">
+        <div class="heading">
+            <h1>Your Personal Details</h1>
+        </div>
+
+        <div class="form-box">
+            <form  [formGroup] ="registerForm" (ngSubmit)="onsubmit()">
+                <div>
+                    <label for="first-name">first name*</label><br>
+
+                    <input type="text" id="first-name" formControlName="firstName"
+                        [ngClass]="{change:firstName?.invalid && firstName?.touched}">
+                    <div class="invalid" *ngIf="firstName && firstName.invalid && firstName.touched ">invalid</div>
+                </div>
+                <div>
+                    <label for="Last-name">Last name*</label><br>
+
+                    <input type="text" id="name" formControlName="lastName"
+                        [ngClass]="{change:lastName?.invalid && lastName?.touched}">
+                    <div class="invalid" *ngIf="lastName && lastName.invalid && lastName.touched ">invalid</div>
+
+                </div>
+                <div>
+                    <label for="employee-code">Employee-Code</label><br>
+
+                    <input type="text" id="emp-code" formControlName="employeeCode">
+                </div>
+                <div>
+                    <label for="email">Email</label><br>
+
+                    <input type="email" id="email" formControlName="email" class="email">
+                </div>
+                <div>
+                    <label for="phone-no">Phone No</label><br>
+                    <input type="number" formControlName="phoneNumber">
+                </div>
+                <!-- <button type="button">register</button> -->
+                <app-button type="button">Submit</app-button>
+            </form>
+        </div>
+    </div>
+    <!-- <button (click)="value()">value</button> -->
+</div>

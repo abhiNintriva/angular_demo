@@ -1,0 +1,47 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    height: 60px;
+    background-color: rgb(236, 0, 0);
+    align-items: center;
+
+    .left {
+        display: flex;
+        gap: 30px;
+        padding-left: 4%;
+
+        .active {
+            border-bottom: 2px solid;
+           
+        }
+
+    }
+
+    .right {
+        display: flex;
+        gap: 30px;
+        padding-right: 4%;
+        align-items: center;
+
+    }
+
+    a {
+        color: rgb(255, 255, 255);
+        text-decoration: none;
+        // border-bottom: 1px solid;
+    }
+
+    a:hover {
+        color: black;
+    }
+
+    button {
+        border-radius: 25px;
+        border: none;
+        background-color: rgb(255, 255, 255);
+        color: rgb(236, 0, 0);
+        height: 30px;
+        width: 80px;
+    }
+}
