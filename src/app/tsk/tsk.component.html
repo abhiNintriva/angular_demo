@@ -1,0 +1,106 @@
+<div class="header">
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" pInputText placeholder="Search" />
+        <!-- [(ngModel)]="value3" -->
+    </span>
+    <div>
+        <p-dropdown placeholder="Departments" optionLabel=""></p-dropdown>
+
+    </div>
+    <div>
+        <p-dropdown placeholder="Projects" optionLabel=""></p-dropdown>
+
+    </div>
+    <div>
+        <p-dropdown placeholder="Manager" optionLabel="name"></p-dropdown>
+
+    </div>
+    <div>
+        <p-dropdown placeholder="Current" optionLabel="name"></p-dropdown>
+
+    </div>
+    <div>
+        <button pButton pRipple type="button" label="Add Employee" class="p-button-success"></button>
+    </div>
+</div>
+
+<!-- <p-table #dt [value]="users" (sortFunction)="usersSort($event)" [customSort]="true"> -->
+
+<p-table #dt [value]="users" [rowHover]="true" [rows]="5" [showCurrentPageReport]="true"
+    [rowsPerPageOptions]="[5,10,50]" [totalRecords]="120" (onPageChange)="paginate($event)"
+     [paginator]="true" (sortFunction)="usersSort($event)" [filterDelay]="0"
+    [customSort]="true"   >
+
+
+
+    <ng-template pTemplate="header">
+        <tr>
+
+            <th pSortableColumn="employee" style="min-width: 14rem">
+                <div class="flex justify-content-between align-items-center">
+                    Employee
+                    <p-sortIcon field="employee"></p-sortIcon>
+                </div>
+            </th>
+            <th pSortableColumn="email" style="min-width: 14rem">
+                <div class="flex justify-content-between align-items-center">
+                    E-mail
+                </div>
+            </th>
+            <th style="min-width: 14rem">
+                <div class="flex justify-content-between align-items-center">
+                    Mobile No
+                </div>
+            </th>
+            <th pSortableColumn="employee.code" style="min-width: 10rem">
+                <div class="flex justify-content-between align-items-center">
+                    Employee Code
+                    <p-sortIcon field="date"></p-sortIcon>
+                </div>
+            </th>
+            <th style="min-width: 10rem">
+                <div class="flex justify-content-between align-items-center">
+                    Project
+                </div>
+            </th>
+
+
+
+        </tr>
+    </ng-template>
+
+    <ng-template pTemplate="body" let-users>
+        <tr class="p-selectable-row">
+
+            <td>
+                <span class="p-column-title">Employee</span>
+                {{users.name}}
+
+            </td>
+            <td>
+                <span class="p-column-title">E-mail</span>
+                {{users.email}}
+            </td>
+            <td>
+                <span class="p-column-title">mobileNo</span>
+                {{users.mobile }}
+            </td>
+            <td>
+                <span class="p-column-title">Employee Code</span>
+                {{users.employeeCode}}
+            </td>
+
+            <td>
+                <span class="p-column-title">Project</span>
+                <span *ngFor="let project of users.project">{{ project.project }}</span>
+                <!-- <span *ngFor="let project of users.project | slice:0:1">{{ project | json }}</span> -->
+                <span class="projectCount">+{{ (users.project.length-1) }}</span>
+                <span class="projectList">print</span>
+            </td>
+
+        </tr>
+    </ng-template>
+    <!-- <p-paginator [rows]="10" [totalRecords]="120" [rowsPerPageOptions]="[10,20,30]"(onPageChange)="paginate($event)"></p-paginator> -->
+
+</p-table>

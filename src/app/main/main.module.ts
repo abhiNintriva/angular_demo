@@ -10,8 +10,9 @@ import { SelectComponent } from './select/select.component';
 import { PersonalComponent } from './personal/personal.component';
 import { MainComponent } from './main.component';
 
-
-
+import {ButtonModule} from 'primeng/button';
+import {TableModule}from 'primeng/table';
+import {PaginatorModule} from 'primeng/paginator';
 @NgModule({
     declarations: [
         NavbarComponent,
@@ -24,6 +25,9 @@ import { MainComponent } from './main.component';
         CommonModule,
         MainRoutingModule,
         SharedModule,
+        ButtonModule,
+        TableModule,
+        PaginatorModule
     ]
 })
 export class MainModule { }

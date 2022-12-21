@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { AuthGuard } from './services/auth.guard';
+import { TskComponent } from './tsk/tsk.component';
  
 
 const routes: Routes = [
   {path:'register', component: RegisterComponent},
 
   {path:'login', component: LoginComponent},
+  {path: 'task', component: TskComponent},
   
   { path : 'main', loadChildren: () => import ('./main/main.module')
   .then(mod=>mod.MainModule), canActivate: [AuthGuard]},

@@ -6,21 +6,26 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule, } from './app-routing.module';
 import { CommonModule } from '@angular/common';
 
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { SharedModule } from './shared/shared.module';
 import { LoginComponent } from './auth/login/login.component';
+import { TskComponent } from './tsk/tsk.component';
 
-
-// import { MainComponent } from './main/main.component';
-// import { Router } from '@angular/router';
+import {InputTextModule} from 'primeng/inputtext';
+import {TableModule} from 'primeng/table';
+import {DropdownModule} from 'primeng/dropdown';
+import {ButtonModule} from 'primeng/button';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {PaginatorModule} from 'primeng/paginator';
 @NgModule({
     declarations: [
         AppComponent,
         RegisterComponent,
         LoginComponent,
+        TskComponent,
 
     ],
     providers: [],
@@ -31,8 +36,14 @@ import { LoginComponent } from './auth/login/login.component';
         ReactiveFormsModule,
         CommonModule,
         SharedModule,
-        HttpClientModule
-
+        HttpClientModule,
+        TableModule,
+        InputTextModule,
+        FormsModule,
+        DropdownModule,
+        ButtonModule,
+        PaginatorModule,
+        BrowserAnimationsModule
     ]
 })
 export class AppModule { }

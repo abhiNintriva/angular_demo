@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-import { catchError, tap, throwError } from 'rxjs';
+import { BehaviorSubject, catchError, tap, throwError } from 'rxjs';
 import { LoginResponse } from 'src/app/shared/login.type';
+import { type, UserListResponse } from 'src/app/shared/posts.type';
 
 
 
@@ -12,21 +13,19 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
+  private userData$ = new BehaviorSubject<type[]>([]);
+  _userData = this.userData$.asObservable();
+
   loginUrl = 'http://164.52.200.24:6204/users/auth/signin';
   registerUrl = 'http://164.52.200.24:6204/users/create';
 
   getlogin(params: any) {
     return this.http.post<LoginResponse>(this.loginUrl, params).pipe(tap((res) => {
       console.log("res", res);
-
-    },
-  ),
-    
+    }),
     )
   }
-    
-    
-  
+
   registraion(params: any) {
     params = {
       ...params, "options": [
@@ -59,8 +58,25 @@ export class LoginService {
 
     }))
   }
+
+
   showUrl = 'assets/login.json';
-  showconfig(){
+  showconfig() {
     return this.http.get<any>(this.showUrl);
+  }
+  postUrl = 'http://164.52.200.24:6204/users/get-all';
+
+  showposts(order: string) {
+    const headers = {
+      "pageNumber": 0,
+      "pageSize": 5,
+      "sortOrder": order,
+      "sortProperty": "employeeCode"
+    }
+    return this.http.post<UserListResponse>(this.postUrl, { headers: headers }).pipe(tap((res) => {
+      if (res) {
+        this.userData$.next(res.users);
+      }
+    }));
   }
 }
