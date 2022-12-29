@@ -1,0 +1,82 @@
+<div class="container">
+
+    <div>
+        <div class="header">
+
+            <span class="p-input-icon-left">
+                <i class="pi pi-search"></i>
+                <input type="text" pInputText placeholder="Search" />
+                <!-- [(ngModel)]="value3" -->
+            </span>
+            <div>
+                <p-dropdown placeholder="Departments" optionLabel=""></p-dropdown>
+
+            </div>
+            <div>
+                <p-dropdown placeholder="Projects" optionLabel=""></p-dropdown>
+
+            </div>
+            <div>
+                <p-dropdown placeholder="Manager" optionLabel="name"></p-dropdown>
+
+            </div>
+            <div>
+                <p-dropdown placeholder="Current" optionLabel="name"></p-dropdown>
+
+            </div>
+            <div>
+                <button pButton pRipple type="button" label="Add Employee" class="p-button-success"></button>
+            </div>
+        </div>
+        <div class="heading">
+            <div class="title">
+                Employee
+                <i class="pi pi-sort-alt" (click)="userSort($event)"></i>
+            </div>
+            <div class="title">
+                E-mail
+            </div>
+            <div class="title">
+                MobileNo
+            </div>
+            <div class="title">
+                Employee Code
+                <i class="pi pi-sort-alt" (click)="empSort($event)"></i>
+            </div>
+            <div class="title">
+                Project
+            </div>
+        </div>
+        <div class="listOut">
+            <div class="list" *ngFor="let user of users">
+                <div class="item">
+                    <div><img src="/assets/images/santander_1.png">
+                    </div>
+                    <div>{{user.name}}</div>
+
+                </div>
+                <div class="item">
+                    <div>{{user.email}}</div>
+                </div>
+                <div class="item">
+                    {{user.mobile}}
+                </div>
+                <div class="item">
+                    {{user.employeeCode}}
+                </div>
+                <div class="item">
+                    {{user.project[0].project}}
+                    <span class="projectCount" pTooltip="{{ getTooltipName(user.project) }}" tooltipPosition="bottom">
+                        +{{(user.project.length-1) }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        <p-paginator [rows]="5" [totalRecords]="120" [rowsPerPageOptions]="[5,10,30]"
+            (onPageChange)="paginate($event)"></p-paginator>
+    </div>
+</div>

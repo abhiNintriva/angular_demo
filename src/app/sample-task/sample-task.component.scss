@@ -1,0 +1,76 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+
+    background-color: rgb(247, 247, 247);
+    justify-content: space-between;
+
+    .header {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        height: 90px;
+        align-items: center;
+
+        input {
+            height: 40px;
+            width: 289px;
+        }
+        ::ng-deep{
+            .p-dropdown .p-dropdown-label.p-placeholder{
+                height: 40px;
+                display: flex;
+                align-items: center;
+            }
+            .p-button .p-button-label{
+                height: 15px;
+                display: flex;
+                align-items: center;
+            }
+        }
+
+    }
+
+    .heading {
+        display: flex;
+        justify-content: space-between;
+        height: 60px;
+        align-items: center;
+        color: #8d8d8d;
+
+        .title {
+            width: 150px;
+        }
+    }
+
+    .listOut {
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        .list {
+            display: flex;
+            justify-content: space-between;
+            height: 56px;
+
+            background-color: rgb(255, 255, 255);
+
+            // padding-right: 100px;
+
+
+            .item {
+                align-items: center;
+                display: flex;
+                width: 150px;
+
+                // background-color: aqua;
+                img {
+                    border-radius: 50%;
+                    height: 50px;
+                    width: 40px;
+                }
+            }
+        }
+    }
+}

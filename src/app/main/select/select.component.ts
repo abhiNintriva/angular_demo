@@ -9,10 +9,9 @@ import { type } from 'src/app/shared/posts.type';
 })
 export class SelectComponent implements OnInit {
 
-  // products !: string= ;
+  users!: type[];
 
-  cols !: any[];
-  products!: any[];
+  
   constructor(private loginservice: LoginService) { }
 
   ngOnInit(): void {
@@ -33,6 +32,14 @@ export class SelectComponent implements OnInit {
   // // userid: any;
 }
 paginate(event:any){
+  console.log("event",event);
+  
+}
+sample(event:any){
+  console.log("event",event);
+  
+}
+sampleSort(event:any){
   console.log("event",event);
   
 }

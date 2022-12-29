@@ -66,12 +66,12 @@ export class LoginService {
   }
   postUrl = 'http://164.52.200.24:6204/users/get-all';
 
-  showposts(order: string) {
+  showposts(order: string , size: number , page:number , sortProperty: string ) {
     const headers = {
-      "pageNumber": 0,
-      "pageSize": 5,
+      "pageNumber": page,
+      "pageSize": size,
       "sortOrder": order,
-      "sortProperty": "employeeCode"
+      "sortProperty": sortProperty,
     }
     return this.http.post<UserListResponse>(this.postUrl, { headers: headers }).pipe(tap((res) => {
       if (res) {

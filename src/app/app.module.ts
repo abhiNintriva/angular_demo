@@ -20,12 +20,16 @@ import {DropdownModule} from 'primeng/dropdown';
 import {ButtonModule} from 'primeng/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {PaginatorModule} from 'primeng/paginator';
+import {TooltipModule} from 'primeng/tooltip';
+import { SampleTaskComponent } from './sample-task/sample-task.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 @NgModule({
     declarations: [
         AppComponent,
         RegisterComponent,
         LoginComponent,
         TskComponent,
+        SampleTaskComponent,
 
     ],
     providers: [],
@@ -43,7 +47,9 @@ import {PaginatorModule} from 'primeng/paginator';
         DropdownModule,
         ButtonModule,
         PaginatorModule,
-        BrowserAnimationsModule
+        BrowserAnimationsModule,
+        TooltipModule,
+        NgbModule
     ]
 })
 export class AppModule { }

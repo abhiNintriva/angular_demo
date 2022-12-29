@@ -1,26 +1,55 @@
-.header{
-    padding: 5px;
+.container {
     display: flex;
+    flex-direction: column;
+    height: 100vh;
     justify-content: space-between;
-    background-color: #fafafa;
-    input{
-        height: auto;
+
+    .header {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        background-color: #fafafa;
+
+        input {
+            height: auto;
+        }
+
     }
 
+
+
+    .projectCount {
+        color: aqua;
+
+    }
+.hii{
+    color: red;
+    align-items: center;
 }
-.projectCount{
-    color: aqua;
-    &:hover.projectList {
-        display: block;
+
+
+    .footer {
+
+        ::ng-deep {
+            .p-paginator .p-paginator-pages .p-paginator-page {
+                border-radius: 0%;
+            }
+            .p-paginator .p-paginator-pages .p-paginator-page:hover{
+                // border-color: #76d0bd;
+               
+                border: 2px solid;
+            }
+            .p-paginator .p-paginator-first{
+                display: none;
+            }
+            .p-paginator .p-paginator-last{
+                display: none;
+            }
+            .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+                border: 1px solid;
+                border-radius: 5px;
+                background-color: #c5ccd2;
+            }   
+        }
     }
 }
-.projectList{
-    display: none;
-   
-}
-// .projectCount:hover.projectList{
-//     display: block;
-// }
-// .projectList:hover{
-//     display: block;
-// }
