@@ -1,3 +1,4 @@
+import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../auth/login/login.service';
 import { Projects, type } from '../shared/posts.type';
@@ -40,37 +41,76 @@ export class SampleTaskComponent implements OnInit {
 
 
   userSort(event: any) {
-    if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
-      this.list();
-    }
-    else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
-      this.list();
-    }
-  }
-  empSort(event: any) {
-    console.log("empsort");
-
     if (this.sortProperty == 'employeeCode') {
       this.sortProperty = 'firstName'
-      console.log("sortProperty", this.sortProperty);
-      this.list();
+
+      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
+        this.list();
+      }
+      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+        this.list();
+      }
     }
     else if (this.sortProperty == 'firstName') {
-      this.sortProperty = 'employeeCode'
-
-      console.log("sortProperty", this.sortProperty);
-      this.list();
-
+      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
+        this.list();
+      }
+      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+        this.list();
+      }
     }
+
   }
+  // empSort(event: any) {
+  //   console.log("empsort");
+
+  //   if (this.sortProperty == 'employeeCode') {
+  //     this.sortProperty = 'firstName'
+  //     console.log("sortProperty", this.sortProperty);
+  //     this.list();
+  //   }
+  //   else if (this.sortProperty == 'firstName') {
+  //     this.sortProperty = 'employeeCode'
+
+  //     console.log("sortProperty", this.sortProperty);
+  //     this.list();
+
+  //   }
+  // }
 
   getTooltipName(project: Projects[]) {
     let allProjects: string[] = [];
     project.forEach((el) => {
+      el.project.toLowerCase()
       allProjects.push(el.project)
     });
     allProjects.splice(0, 1);
-    return allProjects;
+    return allProjects ;
 
   }
+
+  
+
+  empSort(event: any) {
+    console.log("bug");
+    if (this.sortProperty == 'firstName') {
+      this.sortProperty = 'employeeCode'
+
+      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
+        this.list();
+      }
+      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+        this.list();
+      }
+    }
+    else if (this.sortProperty == 'employeeCode') {
+      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
+        this.list();
+      }
+      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+        this.list();
+      }
+    }
+  }
 }
+
