@@ -31,8 +31,8 @@
         <div class="heading">
             <div class="title">
                 Employee
-                <img src="/assets/images/Vector (1).svg" alt="" (click)="userSort($event)" >
-             
+                <img src="/assets/images/Vector (1).svg" alt="" (click)="userSort($event)">
+
             </div>
             <div class="title">
                 E-mail
@@ -43,43 +43,45 @@
             <div class="title">
                 Employee Code
                 <img src="/assets/images/Vector (1).svg" alt="" (click)="empSort($event)">
-               
+
             </div>
             <div class="title">
                 Project
             </div>
         </div>
-        <div class="listOut">
-            <div class="list" *ngFor="let user of users">
-                <div class="item">
-                    <div><img src="/assets/images/Professional.jpg">
-                    </div>
-                    <div class="name">{{user.name}}</div>
+        <p-scrollPanel [style]="{width: '100%', height: '400px'}">
+            <div class="listOut">
+                <div class="list" *ngFor="let user of users">
+                    <div class="item">
+                        <div><img src="/assets/images/Professional.jpg">
+                        </div>
+                        <div class="name">{{user.name}}</div>
 
-                </div>
-                <div class="item">
-                    <div class="font">{{user.email}}</div>
-                </div>
-                <div class="item">
-                    {{user.mobile}}
-                </div>
-                <div class="item">
-                    {{user.employeeCode}}
-                </div>
-                <div class="itemLast">
-                    <div>
-                        {{user.project[0].project |titlecase }}
-                        <span class="projectCount" pTooltip="{{ getTooltipName(user.project)  }}"
-                            tooltipPosition="bottom">
-                            <span class="projectCount" *ngIf="user.project.length > 1">
-                                +{{(user.project.length-1) }}
-                            </span>
-                        </span>
                     </div>
-                    <div><img src="/assets/images/Group.svg" alt=""></div>
+                    <div class="item">
+                        <div class="font">{{user.email}}</div>
+                    </div>
+                    <div class="item">
+                        {{user.mobile}}
+                    </div>
+                    <div class="item">
+                        {{user.employeeCode}}
+                    </div>
+                    <div class="itemLast">
+                        <div>
+                            {{user.project[0].project |titlecase }}
+                            <span class="projectCount" pTooltip="{{ getTooltipName(user.project)  }}"
+                                tooltipPosition="bottom">
+                                <span class="projectCount" *ngIf="user.project.length > 1">
+                                    +{{(user.project.length-1) }}
+                                </span>
+                            </span>
+                        </div>
+                        <div><img src="/assets/images/Group.svg" alt=""></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        </p-scrollPanel>
 
     </div>
 
