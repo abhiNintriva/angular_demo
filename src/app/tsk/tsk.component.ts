@@ -14,6 +14,10 @@ export class TskComponent implements OnInit {
   sortProperty: string = 'employeeCode';
   users!: type[];
   projects!: any;
+  maxSize: string | undefined;
+  directionLinks!:string;
+  autoHide!:string;
+  responsive!:string;
   constructor(private loginservice: LoginService) { }
 
   ngOnInit(): void {

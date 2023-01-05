@@ -76,6 +76,7 @@ export class LoginService {
     return this.http.post<UserListResponse>(this.postUrl, { headers: headers }).pipe(tap((res) => {
       if (res) {
         this.userData$.next(res.users);
+        
       }
     }));
   }
