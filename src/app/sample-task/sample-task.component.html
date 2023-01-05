@@ -25,13 +25,14 @@
 
             </div>
             <div>
-                <button pButton pRipple type="button" label="Add Employee" class="p-button-success"></button>
+                <button class="btn">Add Employee</button>
             </div>
         </div>
         <div class="heading">
             <div class="title">
                 Employee
-                <i class="pi pi-sort-alt" (click)="userSort($event)"></i>
+                <img src="/assets/images/Vector (1).svg" alt="" (click)="userSort($event)" >
+             
             </div>
             <div class="title">
                 E-mail
@@ -41,7 +42,8 @@
             </div>
             <div class="title">
                 Employee Code
-                <i class="pi pi-sort-alt" (click)="empSort($event)"></i>
+                <img src="/assets/images/Vector (1).svg" alt="" (click)="empSort($event)">
+               
             </div>
             <div class="title">
                 Project
@@ -50,7 +52,7 @@
         <div class="listOut">
             <div class="list" *ngFor="let user of users">
                 <div class="item">
-                    <div><img src="/assets/images/santander_1.png">
+                    <div><img src="/assets/images/Professional.jpg">
                     </div>
                     <div>{{user.name}}</div>
 
@@ -64,11 +66,17 @@
                 <div class="item">
                     {{user.employeeCode}}
                 </div>
-                <div class="item">
-                    {{user.project[0].project}}
-                    <span class="projectCount" pTooltip="{{ getTooltipName(user.project) }}" tooltipPosition="bottom">
-                        +{{(user.project.length-1) }}
-                    </span>
+                <div class="itemLast">
+                    <div>
+                        {{user.project[0].project}}
+                        <span class="projectCount" pTooltip="{{ getTooltipName(user.project) }}"
+                            tooltipPosition="bottom">
+                            <span class="projectCount" *ngIf="user.project.length > 1">
+                                +{{(user.project.length-1) }}
+                            </span>
+                        </span>
+                    </div>
+                    <div><img src="/assets/images/Group.svg" alt=""></div>
                 </div>
             </div>
         </div>

@@ -1,7 +1,7 @@
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    // height: 100vh;
 
     background-color: rgb(247, 247, 247);
     justify-content: space-between;
@@ -17,13 +17,21 @@
             height: 40px;
             width: 289px;
         }
-        ::ng-deep{
-            .p-dropdown .p-dropdown-label.p-placeholder{
+
+        .btn {
+            height: 40px;
+            background-color: #3BBCA0;
+            color: #FFFFFF;
+        }
+
+        ::ng-deep {
+            .p-dropdown .p-dropdown-label.p-placeholder {
                 height: 40px;
                 display: flex;
                 align-items: center;
             }
-            .p-button .p-button-label{
+
+            .p-button .p-button-label {
                 height: 15px;
                 display: flex;
                 align-items: center;
@@ -62,15 +70,72 @@
             .item {
                 align-items: center;
                 display: flex;
-                width: 150px;
+                width: 190px;
+                gap: 15px;
 
                 // background-color: aqua;
                 img {
                     border-radius: 50%;
-                    height: 50px;
+                    height: 36px;
                     width: 40px;
+                }
+            }
+
+            .itemLast {
+                align-items: center;
+                display: flex;
+                width: 150px;
+                justify-content: space-between;
+                padding-right: 15px;
+
+                img {
+                    width: 15px;
+                    height: 15px;
+                }
+
+                .projectCount {
+                    color: #3BBCA0;
                 }
             }
         }
     }
 }
+.footer {
+    
+    ::ng-deep {
+        .p-paginator{
+            background-color: rgb(247, 247, 247);
+        }
+        .p-paginator .p-paginator-pages .p-paginator-page {
+            
+            border-radius: 0%;
+            
+        }
+        .p-paginator .p-paginator-pages .p-paginator-page:hover{
+            // border-color: #76d0bd;
+           
+            border: 2px solid;
+        }
+        .p-paginator .p-paginator-first{
+            display: none;
+        }
+        .p-paginator .p-paginator-last{
+            display: none;
+        }
+        .p-paginator .p-paginator-first, .p-paginator .p-paginator-prev, .p-paginator .p-paginator-next, .p-paginator .p-paginator-last {
+            border: 1px solid;
+            border-radius: 4px;
+            background-color: #c5ccd2;
+        } 
+        .p-paginator .p-paginator-pages .p-paginator-page  {
+            border-radius: 4px;
+            // width: 32px;
+            // height: 32px;
+            
+        }
+        .p-paginator .p-paginator-pages .p-paginator-page.p-highlight{
+            color: #3BBCA0;
+        }
+    }
+}
+

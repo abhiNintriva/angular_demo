@@ -1,0 +1,119 @@
+<div class="container">
+    <div class="navbar">
+        <a *ngFor="let item of navbar" [routerLink]="[item.name]" [routerLinkActive]="'active'">
+            {{item.name}}
+        </a>
+    </div>
+    <div class="form">
+        <h3>Profile</h3>
+        <form>
+            <div class="form1">
+            <div class="emp">
+                <label for="firstName">FirstName</label>
+                <input type="text" pInputText />
+            </div>
+            <div class="emp">
+                <label for="secondName">Second Name</label>
+                <input type="text" pInputText />
+            </div>
+            <div class="emp">
+                <label for="date of birth">Date Of Birth</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="gender">Gender</label>
+                <p-dropdown [options]="city" optionLabel="name"></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="email">Email</label>
+                <input type="text" pInputText />
+            </div>
+            <div class="emp">
+                <label for="mobileNo">Mobile No</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="joiningDate">joining Date</label>
+                <p-dropdown [options]="city" optionLabel="name"></p-dropdown>
+            </div>
+            <div class="emp">
+                <div>
+                    <label for="empCode">Employee Code</label>
+                </div>
+                <div class="emp1">
+                    <p-dropdown class="emp2"></p-dropdown>
+                    <p-inputNumber></p-inputNumber>
+                </div>
+            </div>
+            <div class="emp">
+                <label for="empAddress">Employee Address</label>
+                <textarea pInputTextarea></textarea>
+            </div>
+            <div class="emp">
+                <label for="empType">Employee Type</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="designation">Designation</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="Department">Department</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="projects">Projects</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="buddy">Buddy</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="manager">Manager</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="probationStatus">Probation Status</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="probationPeriod">Probation Period</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="WorkStatus">Work Status</label>
+                <p-dropdown></p-dropdown>
+            </div>
+            <div class="emp">
+                <label for="salary">Salary</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="dailyWorkHours">Daily Work Hours</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="WeeklyWorkingHours">Weekly Working Hours</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="pinNumber">PIN Number</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="panNumber">Pan Number</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            <div class="emp">
+                <label for="aadharNuber">Aadhar Number</label>
+                <p-inputNumber></p-inputNumber>
+            </div>
+            </div>
+            <div class="btn">
+                <button pButton pRipple type="button" label="Create" class="p-button-raised"></button>
+                <button pButton pRipple type="button"  label="Reset" class="p-button-outlined"></button>
+            </div>
+        </form>
+    </div>
+</div>

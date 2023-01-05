@@ -1,0 +1,30 @@
+.container{
+    margin-left: 0%;
+    a{
+        text-decoration: none;
+    }
+    .form1{
+        display: grid;
+        grid-template-columns: auto auto auto auto;
+
+        // width: 100vw;
+        justify-content: space-between;
+        
+        grid-column: 3 / span 2;
+        .emp{
+            display: flex;
+            flex-direction: column;
+            .emp1{
+                display: flex;
+                
+            }
+        }
+    }
+    .btn{
+        display: flex;
+        // width: 100vw;
+        
+        justify-content: center;
+        gap: 5px;
+    }
+}
