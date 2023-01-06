@@ -80,4 +80,18 @@ export class LoginService {
       }
     }));
   }
+  forTest(){
+    const headers ={
+      "pageNumber":0,
+      "pageSize":5,
+      "sortOrder":"desc",
+      "sortProperty":"employeeCode"
+    }
+    {
+      return this.http.post<UserListResponse>(this.postUrl, { headers: headers}).pipe(tap((res) => {
+        console.log("res", res);
+  
+      }))
+    }
+  }
 }

@@ -71,22 +71,23 @@
                         <div>
                             {{user.project[0].project |titlecase }}
                             <span class="projectCount" pTooltip="{{ getTooltipName(user.project)  }}"
-                                tooltipPosition="bottom">
-                                <span class="projectCount" *ngIf="user.project.length > 1">
-                                    +{{(user.project.length-1) }}
-                                </span>
+                            tooltipPosition="bottom">
+                            <span class="projectCount" *ngIf="user.project.length > 1">
+                                +{{(user.project.length-1) }}
                             </span>
-                        </div>
-                        <div><img src="/assets/images/Group.svg" alt=""></div>
+                        </span>
                     </div>
+                    <div><img src="/assets/images/Group.svg" alt=""></div>
                 </div>
             </div>
-        </p-scrollPanel>
+        </div>
+    </p-scrollPanel>
+    
+</div>
 
-    </div>
 
-    <div class="footer">
-        <p-paginator [rows]="5" [totalRecords]="120" [rowsPerPageOptions]="[5,10,30]"
-            (onPageChange)="paginate($event)"></p-paginator>
-    </div>
+<div class="footer">
+    <p-paginator [rows]="5" [totalRecords]="120" [rowsPerPageOptions]="[5,10,30]"
+    (onPageChange)="paginate($event)"></p-paginator>
+</div>
 </div>

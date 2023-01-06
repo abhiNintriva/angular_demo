@@ -14,17 +14,23 @@ export class SampleTaskComponent implements OnInit {
   pageSize: number = 5;
   sortOrder: string = 'asc';
   sortProperty: string = 'employeeCode';
+  totalPage!: number;
   constructor(private loginservice: LoginService) { }
 
   ngOnInit(): void {
     this.list();
     this.loginservice._userData.subscribe((res) => {
+      console.log(res);
       this.users = res
+
     })
   }
 
   list() {
+
     this.loginservice.showposts(this.sortOrder, this.pageSize, this.page, this.sortProperty).subscribe();
+
+
   }
 
   paginate(event: any) {
@@ -81,15 +87,16 @@ export class SampleTaskComponent implements OnInit {
   getTooltipName(project: Projects[]) {
     let allProjects: string[] = [];
     project.forEach((el) => {
-      el.project.toLowerCase()
-      allProjects.push(el.project)
+      const newString = el.project.toLowerCase()
+      const updatedString = newString[0].toUpperCase() + newString.slice(1);
+      allProjects.push(updatedString)
     });
     allProjects.splice(0, 1);
-    return allProjects ;
+    return allProjects;
 
   }
 
-  
+
 
   empSort(event: any) {
     console.log("bug");
