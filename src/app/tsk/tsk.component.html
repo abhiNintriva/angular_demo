@@ -1,24 +1,13 @@
 
+<div class="list"
+    *ngFor="let user of users  | paginate: { itemsPerPage: pageSize, currentPage: page, totalItems:(pageSize*totalPage) }">
+    <div class="item">
+        <!-- <div><img src="/assets/images/Professional.jpg">
+        </div> -->
+        <div class="name">{{user.name}}</div>
 
-<div id="app" class="container1">
-    <!-- <ul class="page">
-        <li class="page__btn"><span class="material-icons"> a </span></li>
-        <li class="page__numbers">{{page}}</li>
-        <li class="page__numbers" *ngFor="let item of page">2</li>
-        <li class="page__dots">...</li>
-        <li class="page__numbers">9</li>
-        <li class="page__numbers">10</li>
-
-
-        <li class="page__btn"><span class="material-icons"> > </span></li>
-    </ul> -->
-
-    <ul class="page">
-        <div *ngFor="let i of [].constructor(page); let j = index">
-            <li class="page__numbers" (click)="pageNo(j+1)" >{{j+1}}</li>
-        </div>
-        
-    </ul>
-
-
+    </div>
+    
 </div>
+<pagination-controls (pageChange)="paginate($event)"></pagination-controls>
+<p-dropdown [options]="PageRow" optionLabel="row"    (onChange)="onchange($event)"></p-dropdown>

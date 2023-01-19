@@ -42,12 +42,18 @@ export class LoginComponent implements OnInit {
     this.loginservice.getlogin(this.loginForm.value).subscribe(
       (res) => {
         console.log('login res', res);
+        if(!res.success){
+          console.log(res.message);
+          
+        }
 
         localStorage.setItem('Token', res.data.access_token);
         this.router.navigateByUrl('main/Personal');
         // alert(res.message);
       },
       (error: HttpErrorResponse) => {
+        console.log(error);
+        
         console.log(error.error[0].message);
             console.log(error.error.message);
 

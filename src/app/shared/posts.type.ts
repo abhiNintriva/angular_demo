@@ -16,3 +16,8 @@ export interface Projects {
     id: number;
     project: string
 }
+
+ 
+export interface perPage {
+    row: number;
+}

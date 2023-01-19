@@ -45,4 +45,7 @@ city: any;
     }
   ]
   cities: any[] | undefined;
+  pageLink(){
+    return(100)
+  }
 }

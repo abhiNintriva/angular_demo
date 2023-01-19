@@ -236,3 +236,10 @@ li {
         }
     }
 }
+::ng-deep{
+    .p-dropdown{
+        width: 132px;
+        height: 32px;
+        align-items: center;
+    }
+}

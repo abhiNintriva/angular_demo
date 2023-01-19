@@ -1,7 +1,7 @@
 import { TitleCasePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../auth/login/login.service';
-import { Projects, type } from '../shared/posts.type';
+import { perPage, Projects, type } from '../shared/posts.type';
 
 @Component({
   selector: 'app-sample-task',
@@ -15,22 +15,24 @@ export class SampleTaskComponent implements OnInit {
   sortOrder: string = 'asc';
   sortProperty: string = 'employeeCode';
   totalPage!: number;
+  rowsPerPage!: perPage[];
+  selectedPerPage!: string;
   constructor(private loginservice: LoginService) { }
 
   ngOnInit(): void {
     this.list();
     this.loginservice._userData.subscribe((res) => {
       console.log(res);
-      this.users = res
-
+      this.users = res.users
+      this.totalPage = res.totalPage
     })
+    console.log("totalpage", this.totalPage);
+
   }
 
   list() {
 
     this.loginservice.showposts(this.sortOrder, this.pageSize, this.page, this.sortProperty).subscribe();
-
-
   }
 
   paginate(event: any) {
@@ -46,43 +48,41 @@ export class SampleTaskComponent implements OnInit {
   }
 
 
-  userSort(event: any) {
-    if (this.sortProperty == 'employeeCode') {
-      this.sortProperty = 'firstName'
-
-      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
-        this.list();
-      }
-      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
-        this.list();
-      }
-    }
-    else if (this.sortProperty == 'firstName') {
-      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
-        this.list();
-      }
-      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
-        this.list();
-      }
-    }
-
-  }
-  // empSort(event: any) {
-  //   console.log("empsort");
-
+  // userSort(event: any) {
   //   if (this.sortProperty == 'employeeCode') {
   //     this.sortProperty = 'firstName'
-  //     console.log("sortProperty", this.sortProperty);
-  //     this.list();
+
+  //     if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
+  //       this.list();
+  //     }
+  //     else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+  //       this.list();
+  //     }
   //   }
   //   else if (this.sortProperty == 'firstName') {
-  //     this.sortProperty = 'employeeCode'
-
-  //     console.log("sortProperty", this.sortProperty);
-  //     this.list();
-
+  //     // if 
+  //     (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') 
+  //       this.list();
+  //     // }
+  //     // else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+  //     //   this.list();
+  //     // }
   //   }
+
   // }
+
+  firstNameSort(event: any) {
+   this.sortProperty = 'firstName';
+   this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc';
+   this.list();
+  }
+
+  empCode(event: any) {
+    this.sortProperty = 'employeeCode';
+    this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc';
+    this.list();
+   }
+  
 
   getTooltipName(project: Projects[]) {
     let allProjects: string[] = [];
@@ -98,26 +98,36 @@ export class SampleTaskComponent implements OnInit {
 
 
 
-  empSort(event: any) {
-    console.log("bug");
-    if (this.sortProperty == 'firstName') {
-      this.sortProperty = 'employeeCode'
+  // empSort(event: any) {
+  //   console.log("bug");
+  //   if (this.sortProperty == 'firstName') {
+  //     this.sortProperty = 'employeeCode'
 
-      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
-        this.list();
-      }
-      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
-        this.list();
-      }
-    }
-    else if (this.sortProperty == 'employeeCode') {
-      if (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') {
-        this.list();
-      }
-      else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
-        this.list();
-      }
-    }
-  }
+  //     // if
+  //      this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc';
+  //       this.list();
+  //     // }
+  //     // else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+  //     //   this.list();
+  //     // }
+  //   }
+  //   else if (this.sortProperty == 'employeeCode') {
+  //     // if 
+  //     (this.sortOrder == 'asc' ? this.sortOrder = 'desc' : this.sortOrder = 'asc') 
+  //       this.list();
+  //     // }
+  //     // else if (this.sortOrder == 'desc' ? this.sortOrder = 'asc' : this.sortOrder = 'desc') {
+  //     //   this.list();
+  //     // }
+  //   }
+  // }
+  
+
+  PerPage = [
+    { row: '5' },
+    { row: '10' },
+    { row: '15' }
+  ]
+
 }
 

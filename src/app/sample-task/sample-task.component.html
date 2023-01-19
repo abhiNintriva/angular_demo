@@ -31,7 +31,7 @@
         <div class="heading">
             <div class="title">
                 Employee
-                <img src="/assets/images/Vector (1).svg" alt="" (click)="userSort($event)">
+                <img src="/assets/images/Vector (1).svg" alt="" (click)="firstNameSort($event)">
 
             </div>
             <div class="title">
@@ -42,7 +42,7 @@
             </div>
             <div class="title">
                 Employee Code
-                <img src="/assets/images/Vector (1).svg" alt="" (click)="empSort($event)">
+                <img src="/assets/images/Vector (1).svg" alt="" (click)="empCode($event)">
 
             </div>
             <div class="title">
@@ -51,7 +51,7 @@
         </div>
         <p-scrollPanel [style]="{width: '100%', height: '400px'}">
             <div class="listOut">
-                <div class="list" *ngFor="let user of users">
+                <div class="list" *ngFor="let user of users ">
                     <div class="item">
                         <div><img src="/assets/images/Professional.jpg">
                         </div>
@@ -71,23 +71,25 @@
                         <div>
                             {{user.project[0].project |titlecase }}
                             <span class="projectCount" pTooltip="{{ getTooltipName(user.project)  }}"
-                            tooltipPosition="bottom">
-                            <span class="projectCount" *ngIf="user.project.length > 1">
-                                +{{(user.project.length-1) }}
+                                tooltipPosition="bottom">
+                                <span class="projectCount" *ngIf="user.project.length > 1">
+                                    +{{(user.project.length-1) }}
+                                </span>
                             </span>
-                        </span>
+                        </div>
+                        <div><img src="/assets/images/Group.svg" alt=""></div>
                     </div>
-                    <div><img src="/assets/images/Group.svg" alt=""></div>
                 </div>
             </div>
+        </p-scrollPanel>
+
+    </div>
+
+
+    <div class="footer">
+        <p-paginator [rows]="5" [totalRecords]="(pageSize*totalPage)"  [rowsPerPageOptions]="[5,10,30]"
+            (onPageChange)="paginate($event)"></p-paginator>
+            <!-- <pagination-controls (pageChange)="paginate($event)"></pagination-controls>
+            <p-dropdown [options]="PerPage" optionLabel="row" [(ngModel)]="selectedPerPage"></p-dropdown> -->
         </div>
-    </p-scrollPanel>
-    
-</div>
-
-
-<div class="footer">
-    <p-paginator [rows]="5" [totalRecords]="120" [rowsPerPageOptions]="[5,10,30]"
-    (onPageChange)="paginate($event)"></p-paginator>
-</div>
 </div>

@@ -13,7 +13,11 @@ export class LoginService {
 
   constructor(private http: HttpClient) { }
 
-  private userData$ = new BehaviorSubject<type[]>([]);
+  private userData$ = new BehaviorSubject<UserListResponse>({
+    pageNumber: 1,
+    totalPage: 1,
+    users: []
+  });
   _userData = this.userData$.asObservable();
 
   loginUrl = 'http://164.52.200.24:6204/users/auth/signin';
@@ -66,7 +70,7 @@ export class LoginService {
   }
   postUrl = 'http://164.52.200.24:6204/users/get-all';
 
-  showposts(order: string , size: number , page:number , sortProperty: string ) {
+  showposts(order: string, size: number, page: number, sortProperty: string) {
     const headers = {
       "pageNumber": page,
       "pageSize": size,
@@ -75,22 +79,23 @@ export class LoginService {
     }
     return this.http.post<UserListResponse>(this.postUrl, { headers: headers }).pipe(tap((res) => {
       if (res) {
-        this.userData$.next(res.users);
-        
+        this.userData$.next(res);
+        // console.log(res);
+
       }
     }));
   }
-  forTest(){
-    const headers ={
-      "pageNumber":0,
-      "pageSize":5,
-      "sortOrder":"desc",
-      "sortProperty":"employeeCode"
+  forTest() {
+    const headers = {
+      "pageNumber": 0,
+      "pageSize": 5,
+      "sortOrder": "desc",
+      "sortProperty": "employeeCode"
     }
     {
-      return this.http.post<UserListResponse>(this.postUrl, { headers: headers}).pipe(tap((res) => {
+      return this.http.post<UserListResponse>(this.postUrl, { headers: headers }).pipe(tap((res) => {
         console.log("res", res);
-  
+
       }))
     }
   }
